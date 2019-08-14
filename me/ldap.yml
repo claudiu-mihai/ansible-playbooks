@@ -1,0 +1,10 @@
+- hosts: linux
+  gather_facts: yes
+  tasks:
+    - name: Packages for LDAP client
+      yum:
+        name: "{{ packages }}"
+      vars:
+        packages:
+        - openldap-clients
+        - nss-pam-ldapd

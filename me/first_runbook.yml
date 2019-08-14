@@ -1,0 +1,19 @@
+---
+- hosts: all
+  strategy: free
+  gather_facts: yes
+  tasks:
+    # - name: Get disk facts
+    #   win_disk_facts:
+    # - name: Output first disk size
+    #   debug:
+    #     var: ansible_facts.disks[0].size
+    - name: Get info
+      win_whoami:
+    - debug:
+        
+        
+  # - name: set administrator password
+  #   win_user:
+  #     Name: Administrator
+  #     Password: SuperSecretPassword1234

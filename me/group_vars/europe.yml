@@ -1,0 +1,18 @@
+
+# it is suggested that these be encrypted with ansible-vault:
+# ansible-vault edit group_vars/windows.yml
+
+ansible_user: emea-sccmpush@EUROPE.TECHTEAM.COM
+ansible_password: !vault |
+    $ANSIBLE_VAULT;1.1;AES256
+    38336265346539666664393435303361323737393337643861373361633632376631383735383330
+    3933646161646563356361663934623562346564656236380a386565626331313737336439306231
+    31623532326163306135336562663363646664666332343930303163316366613039306634633134
+    3866396164616265610a306234666661633634633939373632623232396135356363663330303664
+    6538
+ansible_port: 5985
+ansible_connection: winrm
+ansible_winrm_transport: kerberos
+ansible_winrm_message_encryption: always
+# The following is necessary for Python 2.7.9+ (or any older Python that has backported SSLContext, eg, Python 2.7.5 on RHEL7) when using default WinRM self-signed certificates:
+ansible_winrm_server_cert_validation: ignore
